@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="barrier_w_reflector">
+    <static>1</static>
+    <pose frame="">0 0 0 0 0 0</pose>
+
+    <link name="link">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0</iyy><iyz>0</iyz><izz>0</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <!-- reflector cho LiDAR -->
+        <laser_retro>1000.0</laser_retro>
+        <geometry>
+          <box>
+            <!-- size: 1.8 m × 0.1 m × 0.5 m -->
+            <size>1.8 0.1 0.5</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact><ode/></contact>
+          <bounce/>
+          <friction>
+            <torsional><ode/></torsional>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1.8 0.1 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>1 0 0 1</specular>
+          <emissive>1 0 0 1</emissive>
+        </material>
+        <laser_retro>1000.0</laser_retro>
+      </visual>
+
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>
