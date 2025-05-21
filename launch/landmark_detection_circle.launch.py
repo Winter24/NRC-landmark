@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     args = [
-        DeclareLaunchArgument('min_intensity',        default_value='50.0'),
+        DeclareLaunchArgument('min_intensity',        default_value='2500.0'), #perfect
         DeclareLaunchArgument('angle_cluster_thresh', default_value='0.055'),
         DeclareLaunchArgument('range_min',            default_value='0.2'),
         DeclareLaunchArgument('range_max',            default_value='10.0'),
@@ -14,7 +14,7 @@ def generate_launch_description():
 
     node = Node(
         package='landmark_detection',
-        executable='landmark_detection',
+        executable='landmark_detection_circle',
         name='landmark_detection',
         output='screen',
         parameters=[
