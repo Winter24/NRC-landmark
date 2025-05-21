@@ -27,15 +27,15 @@ target_include_directories(landmark_detection_circle
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-add_executable(landmark_detection_line
-  src/landmark_detection_line.cpp
+add_executable(landmark_detection_line_corner
+  src/landmark_detection_line_corner.cpp
 )
-ament_target_dependencies(landmark_detection_line
+ament_target_dependencies(landmark_detection_line_corner
   rclcpp
   sensor_msgs
   visualization_msgs
 )
-target_include_directories(landmark_detection_line
+target_include_directories(landmark_detection_line_corner
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
@@ -43,7 +43,7 @@ target_include_directories(landmark_detection_line
 # Install executables
 install(TARGETS
   landmark_detection_circle
-  landmark_detection_line
+  landmark_detection_line_corner
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
